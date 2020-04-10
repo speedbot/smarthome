@@ -20,7 +20,7 @@ class BulbUpdateView(UpdateView):
 
 class BulbDetailView(DetailView):
     model = Bulb
-    template_name = 'bulb/create.html'
+    template_name = 'bulb/detail.html'
 
 
 class FanCreateView(CreateView):
