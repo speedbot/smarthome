@@ -41,7 +41,7 @@ class FanUpdateView(UpdateView):
 
 class FanDetailView(DetailView):
     model = Fan
-    template_name = 'fan/detail.html.html'
+    template_name = 'fan/detail.html'
 
 
 class Home(TemplateView):
