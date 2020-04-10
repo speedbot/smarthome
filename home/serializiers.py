@@ -6,10 +6,10 @@ from rest_framework.serializers import ModelSerializer
 class BulbSerializer(ModelSerializer):
     class Meta:
         model = Bulb
-        fields = ('owner', 'name', 'state', 'brightness', 'color')
+        fields = ('id','owner', 'name', 'state', 'brightness', 'color')
 
 
 class FanSerializer(ModelSerializer):
     class Meta:
         model = Fan
-        fields = ('owner', 'name', 'state', 'speed')
+        fields = ('id', 'owner', 'name', 'state', 'speed')
