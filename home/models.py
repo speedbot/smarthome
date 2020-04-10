@@ -24,7 +24,7 @@ class Device(TimeStampMixin, models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     state = models.BooleanField(default=False)
-    deleted_at = models.DateTimeField()
+    deleted_at = models.DateTimeField(default=None, null=True)
     objects = DeviceManager()
 
     def __str__(self):
