@@ -7,6 +7,8 @@ from colorful.fields import RGBColorField
 
 
 class TimeStampMixin(models.Model):
+    class Meta:
+        abstract = True
     created_at = models.DateTimeField(auto_now=True)
     modified_at = models.DateTimeField(auto_now_add=True)
 
