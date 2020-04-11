@@ -4,4 +4,9 @@
     {{ object.brightness }}
     {{ object.state }}
     {{ object.color }}
+    </br>
+    <a href="{% url 'bulb:delete' object.id %}"> Delete</a>
+    </br>
+    <a href="{% url 'bulb:update' object.id %}"> Update</a>
+    </br>
 {% endblock %}
