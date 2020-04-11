@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ bulbs }}
+    {% for item in bulbs %}
+        {{ item.id }}
+        {{ item.name }}
+        {{ item.brightness }}
+        {{ item.color }}
+    {% endfor %}
+{% endblock %}
