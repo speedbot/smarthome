@@ -13,7 +13,7 @@ router.register(r'bulb', BulbViewSet)
 urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('admin', admin.site.urls),
-    path('api', include(router.urls)),
+    path('api/', include(router.urls)),
     path('accounts/', include('home.accounts_urls'), name='accounts'),
     path('bulb/create', BulbCreateView.as_view(), name='bulb-create'),
     path('bulb/update/<pk>/', BulbUpdateView.as_view(), name='bulb-update'),
