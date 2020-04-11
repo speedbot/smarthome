@@ -11,6 +11,7 @@ class BulbCreateView(LoginRequiredMixin, CreateView):
 
 class BulbDeleteView(LoginRequiredMixin, DeleteView):
     model = Bulb
+    success_url = '/'
 
 
 class BulbUpdateView(LoginRequiredMixin, UpdateView):
@@ -32,7 +33,7 @@ class FanCreateView(LoginRequiredMixin, CreateView):
 
 class FanDeleteView(LoginRequiredMixin, DeleteView):
     model = Fan
-
+    success_url = '/'
 
 class FanUpdateView(LoginRequiredMixin, UpdateView):
     model = Fan
