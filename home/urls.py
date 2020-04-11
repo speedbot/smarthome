@@ -12,14 +12,14 @@ router.register(r'bulb', BulbViewSet)
 
 urlpatterns = [
     path('', Home.as_view(), name='home'),
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('accounts/', include('home.accounts_urls'), name='accounts'),
-    path('bulb/create', BulbCreateView.as_view(), name='bulb-create'),
+    path('bulb/create/', BulbCreateView.as_view(), name='bulb-create'),
     path('bulb/update/<pk>/', BulbUpdateView.as_view(), name='bulb-update'),
     path('bulb/delete/<pk>/', BulbDeleteView.as_view(), name='bulb-delete'),
     path('bulb/detail/<pk>/', BulbDetailView.as_view(), name='bulb-detail'),
-    path('fan/create', FanCreateView.as_view(), name='fan-create'),
+    path('fan/create/', FanCreateView.as_view(), name='fan-create'),
     path('fan/delete/<pk>/', FanDeleteView.as_view(), name='fan-delete'),
     path('fan/update/<pk>/', FanUpdateView.as_view(), name='fan-update'),
     path('fan/detail/<pk>/', FanDetailView.as_view(), name='bulb-detail'),
