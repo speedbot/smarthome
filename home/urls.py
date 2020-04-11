@@ -13,7 +13,7 @@ urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('accounts/', include('home.accounts_urls'), name='accounts'),
+    path('accounts/', include('home.accounts_urls', namespace='accounts'), name='accounts'),
     path('bulb/', include('home.bulb_urls', namespace='bulb'), name='bulb'),
     path('fan/', include('home.fan_urls', namespace='fan'), name='fan'),
 
