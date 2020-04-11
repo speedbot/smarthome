@@ -17,6 +17,8 @@ class TimeStampMixin(models.Model):
 class DeviceManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(deleted_at=None)
+    def unlimited(self):
+        return super().get_queryset()
 
 
 class Device(TimeStampMixin, models.Model):
