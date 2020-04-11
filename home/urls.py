@@ -14,7 +14,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('accounts/', include('home.accounts_urls'), name='accounts'),
-    path('bulb/', include('home.bulb_urls'), name='bulb'),
-    path('fan/', include('home.fan_urls'), name='bulb'),
+    path('bulb/', include('home.bulb_urls', namespace='bulb'), name='bulb'),
+    path('fan/', include('home.fan_urls', namespace='fan'), name='fan'),
 
 ]
