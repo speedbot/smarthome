@@ -1,5 +1,15 @@
+{% extends 'base.html' %}
+
 {% block content %}
-    {{ object.name }}
-    {{ object.speed }}
-    {{ object.state }}
+    Name:- {{ object.name }}
+    </br>
+    Speed: -{{ object.speed }}
+    </br>
+    State:- {{ object.state }}
+    </br>
+  </br>
+    <a href="{% url 'fan:delete' object.id %}"> Delete</a>
+    </br>
+    <a href="{% url 'fan:update' object.id %}"> Update</a>
+    </br>
 {% endblock %}

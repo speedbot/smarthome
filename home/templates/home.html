@@ -1,11 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {{ bulbs }}
-    {% for item in bulbs %}
-        {{ item.id }}
-        {{ item.name }}
-        {{ item.brightness }}
-        {{ item.color }}
-    {% endfor %}
+    <h1> Hello {{ request.user.username }}</h1>
+    </br>
+    <h2> Here are list of your devices</h2>
+    <h3>Bulbs</h3>
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Brightness</td>
+            <td>Color</td>
+            <td>View Item</td>
+        </thead>
+        {% for item in bulbs %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.brightness }}</td>
+                <td bgcolor="{{ item.color }}">{{ item.color }}</td>
+                <td><a href="{% url 'bulb:detail' item.id %}"> View</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </br>
+    <a href="{% url 'bulb:create' %}"> Add new Bulb</a>
+    </br>
+    <h3>Fans</h3>
+
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Speed</td>
+            <td>View Item</td>
+        </thead>
+        {% for item in fans %}
+             <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.speed }}</td>
+                 <td><a href="{% url 'fan:detail' item.id %}"> View</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </br>
+    <a href="{% url 'fan:create' %}"> Add new Fan</a>
+
 {% endblock %}

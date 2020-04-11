@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{ object.name }}
-    {{ object.brightness }}
-    {{ object.state }}
-    {{ object.color }}
+    Name:-{{ object.name }}
+     </br>
+    Brightness:-{{ object.brightness }}
+     </br>
+    State:- {{ object.state }}
+     </br>
+    Color:- {{ object.color }}
+    </br>
+    </br>
+    <a href="{% url 'bulb:delete' object.id %}"> Delete</a>
+    </br>
+    <a href="{% url 'bulb:update' object.id %}"> Update</a>
+    </br>
 {% endblock %}

@@ -11,6 +11,7 @@ class BulbCreateView(LoginRequiredMixin, CreateView):
 
 class BulbDeleteView(LoginRequiredMixin, DeleteView):
     model = Bulb
+    success_url = '/'
 
 
 class BulbUpdateView(LoginRequiredMixin, UpdateView):
@@ -32,6 +33,7 @@ class FanCreateView(LoginRequiredMixin, CreateView):
 
 class FanDeleteView(LoginRequiredMixin, DeleteView):
     model = Fan
+    success_url = '/'
 
 
 class FanUpdateView(LoginRequiredMixin, UpdateView):
@@ -49,10 +51,13 @@ class Home(LoginRequiredMixin, TemplateView):
     template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
+        ctx = super(Home, self).get_context_data()
         bulbs = Bulb.objects.filter(owner=self.request.user)
         fans = Fan.objects.filter(owner=self.request.user)
-        ctx = {
-            bulbs: bulbs,
-            fans: fans,
-        }
+        ctx.update(
+            {
+                'bulbs': bulbs,
+                'fans': fans,
+            }
+        )
         return ctx
