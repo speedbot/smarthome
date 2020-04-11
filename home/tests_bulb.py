@@ -21,7 +21,7 @@ class TestApi(TestCase):
 
     def test_create(self):
         self.assertEqual(Bulb.objects.count(), 0)
-        response = self.client.post('/bulb/', self.get_data(), format='json')
+        response = self.client.post('/api/bulb/', self.get_data(), format='json')
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Bulb.objects.count(), 1)
 
@@ -29,33 +29,33 @@ class TestApi(TestCase):
         self.assertEqual(Bulb.objects.count(), 0)
         data = self.get_data()
         data['brightness']=-1
-        response = self.client.post('/bulb/', data, format='json')
+        response = self.client.post('/api/bulb/', data, format='json')
         self.assertEqual(response.status_code, 400)
         self.assertEqual(Bulb.objects.count(), 0)
 
     def test_update(self):
         data = self.get_data()
         self.assertEqual(Bulb.objects.count(), 0)
-        response = self.client.post('/bulb/', data, format='json')
+        response = self.client.post('/api/bulb/', data, format='json')
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Bulb.objects.count(), 1)
         obj = Bulb.objects.first()
         data = self.get_data()
         data['speed'] = 2
         data['state'] = False
-        response = self.client.patch('/bulb/{}'.format(obj.id), data, format='json')
+        response = self.client.patch('/api/bulb/{}'.format(obj.id), data, format='json')
         self.assertEqual(response.status_code, 301)
         self.assertEqual(Bulb.objects.count(), 1)
-        response = self.client.get('/bulb/{}'.format(obj.id), data, format('json'))
+        response = self.client.get('/api/bulb/{}'.format(obj.id), data, format('json'))
 
     def test_delete(self):
         self.assertEqual(Bulb.objects.count(), 0)
-        response = self.client.post('/bulb/', self.get_data(), format='json')
+        response = self.client.post('/api/bulb/', self.get_data(), format='json')
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Bulb.objects.count(), 1)
         obj = Bulb.objects.first()
 
-        self.client.delete('/bulb/{}/'.format(obj.id))
+        self.client.delete('/api/bulb/{}/'.format(obj.id))
         self.assertEqual(Bulb.objects.count(), 0)
 
 

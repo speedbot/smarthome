@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 from colorful.fields import RGBColorField
@@ -47,6 +48,9 @@ class Bulb(Device):
 
     color = RGBColorField()
 
+    def get_absolute_url(self):
+        return '/bulb/detail/{}/'.format(self.id)
+
 
 class Fan(Device):
     speed = models.IntegerField(
@@ -56,3 +60,6 @@ class Fan(Device):
             MinValueValidator(1)
         ]
     )
+
+    def get_absolute_url(self):
+        return '/fan/detail/{}/'.format(self.id)

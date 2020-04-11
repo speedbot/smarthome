@@ -1,9 +1,11 @@
 {% block title %}
-
+    <a href="{% url 'home' %}">Home</a>
 {% endblock %}
 
 
 {% block content %}
-
 {% endblock %}
 
+{% block footer %}
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
