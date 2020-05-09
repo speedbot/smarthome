@@ -45,3 +45,31 @@
 - We Use Djangos built in authentication system and api browser
 - Unit tests cover all the CRUD tests
 - Frontend templates use a `base.html` from which all other templates are extended.
+
+
+
+
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd myfirstreact
+  npm start
+
+Happy hacking!
+
+
+
+
